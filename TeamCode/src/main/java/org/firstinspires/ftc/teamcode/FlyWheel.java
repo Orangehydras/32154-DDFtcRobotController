@@ -23,7 +23,7 @@ public class FlyWheel extends LinearOpMode {
 
         while (opModeIsActive()) {
             // Sets motor power to 1 when bumper is pressed, and 0 when not
-            if (gamepad1.right_bumper) {
+            if (gamepad1.left_bumper) {
                 fly_wheel.setPower(1.0);
             } else {
                 fly_wheel.setPower(0.0);
