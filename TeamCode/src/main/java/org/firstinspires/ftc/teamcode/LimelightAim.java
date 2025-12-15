@@ -9,8 +9,7 @@ public class LimelightAim {
     // Tune this to change how fast the robot turns
     // if it oscillates past it, lower the value
     // if it is too low and doesnt swiftly lock onto the april tag, increase the value
-
-    private static final double kP = 0.035;
+    private static final double kP = 0.025;
     private static final double kD = 0.003;
     private static double lastError = 0;
 
@@ -30,6 +29,6 @@ public class LimelightAim {
 
         rotate = Range.clip(rotate, -0.5, 0.5);
 
-        return -rotate;
+        return rotate;
     }
 }

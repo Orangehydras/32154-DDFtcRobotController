@@ -61,6 +61,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
  * different sensor if you need precise distance measurements.
 
  */
+
+@Disabled
 @TeleOp(name = "Sensor: Color", group = "Sensor")
 public class Spindexer extends LinearOpMode {
 

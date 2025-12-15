@@ -37,8 +37,8 @@ public class CompTeleop extends OpMode {
     private IMU imu;
 
     // declare the variables that we will need.
-    double forward, strafe, rotate, hoodAngle;
-    boolean spin, shoot, stop, lastA, currentA, currentB, lastY, currentY, lastB, reverse;
+    double forward, strafe, rotate, hoodAngle, maxSpeed;
+    boolean spin, shoot, stop, lastA, currentA, currentB, lastY, currentY, lastB, reverse, lastLB, currentLB;
 
     boolean isRedAlliance = true;
 
@@ -78,7 +78,6 @@ public class CompTeleop extends OpMode {
 
         // gets the variables for Spinning the flywheel and shooting from gamepad 2
         spin = gamepad2.left_bumper;
-        shoot = gamepad2.right_bumper;
 
         // Start and Stop and reverse for the intake
         currentA = gamepad2.a;
@@ -111,6 +110,12 @@ public class CompTeleop extends OpMode {
             drive.reset();
         }
 
+        if (gamepad1.right_bumper) {
+            maxSpeed = 0.2;
+        } else {
+            maxSpeed = 1;
+        }
+
         lastA = currentA;
         lastB = currentB;
         lastY = currentY;
@@ -122,7 +127,7 @@ public class CompTeleop extends OpMode {
 
 
         // passes the movement values from gamepad 1 into the mecanum class
-        drive.driveFieldRelative(forward, strafe, rotate);
+        drive.driveFieldRelative(forward, strafe, rotate, maxSpeed);
 
         // passes the button values for the shooter from gamepad 2 into the turret class
         flywheel.shooter(spin, shoot, stop, reverse, hoodAngle);

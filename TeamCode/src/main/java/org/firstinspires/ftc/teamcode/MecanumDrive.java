@@ -53,7 +53,7 @@ public class MecanumDrive {
 
 
 
-    public void drive(double forward, double strafe, double rotate) {
+    public void drive(double forward, double strafe, double rotate, double maxSpeed) {
         // does the math to set the correct power to each wheel
         double frontLeftPower = forward + strafe + rotate;
         double backLeftPower = forward - strafe + rotate;
@@ -61,7 +61,7 @@ public class MecanumDrive {
         double backRightPower = forward + strafe - rotate;
 
         double maxPower = 1;
-        double maxSpeed = 1;
+
 
         // Checks to see which value is the maximum value so we can adjust for it
         // If we didn't do this, we could theoretically get powers of up to 3, but it is limited to one, so it would not drive as expected.
@@ -78,7 +78,7 @@ public class MecanumDrive {
 
 
 
-    public void driveFieldRelative(double forward, double strafe, double rotate) {
+    public void driveFieldRelative(double forward, double strafe, double rotate, double maxSpeed) {
         double theta = Math.atan2(forward, strafe);
         double r = Math.hypot(strafe, forward);
 
@@ -89,7 +89,7 @@ public class MecanumDrive {
         double finalForward = r * Math.sin(theta);
         double finalStrafe =r * Math.cos(theta);
 
-        this.drive(finalForward, finalStrafe, rotate);
+        this.drive(finalForward, finalStrafe, rotate, maxSpeed);
 
     }
 

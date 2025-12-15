@@ -61,9 +61,9 @@ public class RoboDrive extends LinearOpMode {
             double[] move2d(double forward, double strafe, double turn) {
                 return new double[]{
                     (forward - strafe - turn) * maxSpeed, // top right
-                    (forward - strafe + turn) * maxSpeed, // top left
+                    (forward + strafe + turn) * maxSpeed, // top left
                     (forward + strafe - turn) * maxSpeed, // bottom right
-                    (forward + strafe + turn) * maxSpeed  // bottom left
+                    (forward - strafe + turn) * maxSpeed  // bottom left
             };
         }
     }

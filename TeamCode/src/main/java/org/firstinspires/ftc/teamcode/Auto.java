@@ -24,7 +24,7 @@ public class Auto extends LinearOpMode {
         waitForStart();
 
         // Drive forward for 0.8 seconds
-        driveForward(0.3);
+        driveForward(-0.3);
         sleep(800);
 
         // Stop
