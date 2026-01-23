@@ -8,7 +8,7 @@ public class Turret {
 
     // Declare motors
     private DcMotor flyRight, flyLeft, intake;
-    private Servo servo;
+    private Servo h_servo, t_servo;
 
     public void init(HardwareMap hwMap) {
         // Initialize the motors (the name must match the config in the Driver Station)
@@ -16,12 +16,13 @@ public class Turret {
         flyRight = hwMap.get(DcMotor.class, "flywheel_1");
         flyLeft = hwMap.get(DcMotor.class, "flywheel_2");
         intake = hwMap.get(DcMotor.class, "intake_motor");
-        servo = hwMap.get(Servo.class, "hood_servo");
+        h_servo = hwMap.get(Servo.class, "hood_servo");
 
         // Set motor direction (reverse if needed)
-        flyLeft.setDirection(DcMotor.Direction.REVERSE);
+        flyRight.setDirection(DcMotor.Direction.REVERSE);
 
-        servo = hwMap.get(Servo.class, "hood_servo");
+        h_servo = hwMap.get(Servo.class, "hood_servo");
+        t_servo = hwMap.get(Servo.class, "shoot_servo");
     }
 
     public void shooter(boolean spin, boolean shoot, boolean stop, boolean reverse, double hoodAngle) {
@@ -35,6 +36,12 @@ public class Turret {
             flyRight.setPower(0);
             flyLeft.setPower(0);
         }
+        if (shoot) {
+            t_servo.setPosition(1.0);
+        }
+        else {
+            t_servo.setPosition(0.0);
+        }
         if (stop) {
             intake.setPower(0); // Stop the intake
         }
@@ -43,7 +50,7 @@ public class Turret {
         } else {
             intake.setPower(1);
         }
-        servo.setPosition(hoodAngle);
+        h_servo.setPosition(hoodAngle);
 
 
     }

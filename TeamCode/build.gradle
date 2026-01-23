@@ -25,4 +25,7 @@ android {
 
 dependencies {
     implementation project(':FtcRobotController')
+    implementation 'com.github.pedropathing:PedroPathing:main-SNAPSHOT'
 }
+
+

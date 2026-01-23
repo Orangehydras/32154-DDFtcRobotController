@@ -78,6 +78,7 @@ public class CompTeleop extends OpMode {
 
         // gets the variables for Spinning the flywheel and shooting from gamepad 2
         spin = gamepad2.left_bumper;
+        shoot = gamepad2.right_bumper;
 
         // Start and Stop and reverse for the intake
         currentA = gamepad2.a;
@@ -105,11 +106,11 @@ public class CompTeleop extends OpMode {
         if (currentY && !lastY) {
             reverse = !reverse;
         }
-        // if the Start button is pressed, resests the IMU Yaw
+        // if the Start button is pressed, resets the IMU Yaw
         if (gamepad1.options) {
             drive.reset();
         }
-
+        // Super Slow mode for end game park.
         if (gamepad1.right_bumper) {
             maxSpeed = 0.2;
         } else {

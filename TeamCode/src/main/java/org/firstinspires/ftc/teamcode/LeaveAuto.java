@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Autonomous(name="Mecanum: Move Off Line", group="Auto")
-public class Auto extends LinearOpMode {
+public class LeaveAuto extends LinearOpMode {
 
     private DcMotor frontLeft, frontRight, backLeft, backRight;
     @Override

@@ -32,7 +32,7 @@ public class MecanumDrive {
         frontRight.setDirection(DcMotor.Direction.REVERSE);
         backRight.setDirection(DcMotor.Direction.REVERSE);
 
-        // Sets the motors to run using the encoders, meaning it will do more fancy stuff in the background to make our motors perform more optimally.
+        // Sets the motors to run using the encoders, meaning it will do more fancy stuff in the background to make our motors automaticall try and compensate for weight differences in our robot.
         frontLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         frontRight.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backLeft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
