@@ -111,7 +111,7 @@ public class CompTeleop extends OpMode {
             drive.reset();
         }
         // Super Slow mode for end game park.
-        if (gamepad1.right_bumper) {
+        if (gamepad1.right_trigger > 0.1) {
             maxSpeed = 0.2;
         } else {
             maxSpeed = 1;

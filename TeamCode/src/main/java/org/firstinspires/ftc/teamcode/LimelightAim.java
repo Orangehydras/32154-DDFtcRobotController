@@ -29,6 +29,6 @@ public class LimelightAim {
 
         rotate = Range.clip(rotate, -0.5, 0.5);
 
-        return rotate;
+        return -rotate;
     }
 }
